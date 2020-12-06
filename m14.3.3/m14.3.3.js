@@ -22,14 +22,15 @@ const btnRequest = document.querySelector('.btn-request')
 function resultDisplay(apiData){
     let cards = '';
     apiData.forEach(item =>{
+        // Опечатка при выводе: подставляемые в шаблонную строку значения должны быть в фигурных скобках. В имени свойства также есть опечатка, из-за этого изображения не отображаются на странице
         const cardBlock = `
         <div class="card">
-        <img src = "$(item.downolad_url}"
+        <img src = "${item.download_url}"
         class = "card-image">
         <p>${item.author}</p>
         </div>
         `
-        cards = cardBlock;
+        cards += cardBlock; // Здесь вы каждый раз переписываете переменную cards, вместо того, чтобы добавлять сгенерированное значение к уже полученным ранее. Из-за этого выводится только одно, последнее изображение
     });
     resultCard.innerHTML = cards;
 }
