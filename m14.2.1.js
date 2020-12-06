@@ -20,7 +20,7 @@ const XMLstring = `
 `;
 
 const parser = new DOMParser();
-const xml = parser.parseFromString(XMLstring, "text/xtl");
+const xml = parser.parseFromString(XMLstring, "text/xml"); // Опечатка: здесь должно быть "text/xml". С текущим значением код выдает ошибку
 const list = xml.querySelector("list");
 const students = list.querySelectorAll("student");
 const result = {

@@ -14,7 +14,7 @@ function useRequest(firstNum, secondNum) {
 btnRequest.addEventListener('click', function () {
     const firstNum = +document.querySelector('input[id="firstNum"]').value
     const secondNum = +document.querySelector('input[id="secondNum"]').value
-    if (typeof firstNum && typeof secondNum === "number" && !isNaN(firstNum) && !isNaN(secondNum)) {
+    if (typeof firstNum === "number" && typeof secondNum === "number" && !isNaN(firstNum) && !isNaN(secondNum)) { // Небольшая ошибка при проверке условия. Часть  === "number" надо повторять для каждой проверки
         if (firstNum >= 100 && firstNum <= 300 && secondNum >= 100 && secondNum <= 300) {
             useRequest(firstNum, secondNum)
         } else {
